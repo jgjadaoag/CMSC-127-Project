@@ -1,0 +1,10 @@
+{
+	"name": "CMSC-127-Project",
+	"description": "A simple class management system using PostgreSQL",
+	"version": "0.0.0",
+	"private": true,
+	"dependencies": {
+		"express": "*",
+		"pg": "*"
+	}
+}

@@ -1,0 +1,28 @@
+/* FONTS */
+@font-face {
+	font-family: built-titling;
+	src: url("../fonts/built-titling-rg.ttf");
+}
+
+@font-face {
+	font-family: built-titling-bold;
+	src: url("../fonts/built-titling-bd.ttf");
+}
+
+@font-face {
+	font-family: roboto;
+	src: url("../fonts/Roboto-Thin.ttf");
+}
+
+@font-face {
+	font-family: roboto-bold;
+	src: url("../fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+	font-family: basic-title-font;
+	src: url("../fonts/basictitlefont.ttf");
+}
+
+$big-font: built-titling;
+$normal-font: roboto;

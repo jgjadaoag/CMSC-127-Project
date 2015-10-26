@@ -1,0 +1,10 @@
+@import 'colors';
+
+$block-bg: rgba(255, 255, 255, 0.7);
+$block-radius: 10px;
+$dark-block-bg: rgba(79,77,80,0.5);
+
+.dark-block {
+	background-color: $dark-block-bg;
+	color: $white;
+}

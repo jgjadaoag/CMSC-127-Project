@@ -1,0 +1,72 @@
+body {
+	background-image: url("http://i.huffpost.com/gen/1742960/images/o-EMPTY-CLASSROOM-facebook.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+#info-panel{
+	border-radius: 5px;
+	margin: 3%;
+	margin-left: 1.5%;
+	padding: 1%;
+	padding-left: 3%;
+	background-color: rgba(0,0,0,0.5);
+}
+
+h2{
+	font-size: 50px;
+	letter-spacing: 3px;
+	color: #C9C5CB;
+	font-family: built-titling;
+}
+
+#info-panel h4, h5{
+	color: #FFFFE7;
+	font-family: Roboto-Bold;
+}
+
+#post-panel{
+	border-radius: 5px;
+	margin: 3% 0 3% 0;
+	padding: 2%;
+	padding-top: 0;
+	background-color: rgba(51, 61, 56, 0.8);
+}
+
+#post-panel form{
+	padding-right: 10%;
+}
+
+#post-panel td{
+	font-family: basic-title-font;
+	font-size: 23px;
+	color: #FFFFE7;
+}
+
+.table th, .table td { 
+     border-top: none !important; 
+ }
+
+input, textarea{
+	font-size: 14px;
+	width: 102%;
+	color: black;
+}
+
+a{
+	color: #FFFFE7;
+}
+
+a:hover{
+	color: #C9C5CB;
+	text-decoration: none;
+}
+
+table{
+	text-align: right;
+}
+
+.custom{
+	margin-left: 22%;
+	width: 78%;
+}

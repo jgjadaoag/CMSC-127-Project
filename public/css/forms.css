@@ -1,0 +1,39 @@
+.dark-block {
+  background-color: rgba(79, 77, 80, 0.5);
+  color: #FFFFE7; }
+
+section.form-section {
+  padding: 2%;
+  width: 65%;
+  margin: auto;
+  margin-top: 1%;
+  border-radius: 2%;
+  font-family: roboto;
+  font-size: 15px; }
+  section.form-section input[type="text"], section.form-section input[type="password"] {
+    color: #333D38;
+    padding: 0.4%; }
+  section.form-section legend {
+    font-family: roboto-bold;
+    border: 0; }
+  section.form-section h1 {
+    font-family: built-titling;
+    font-size: 50px;
+    letter-spacing: 3px; }
+  section.form-section div.form-element {
+    padding-bottom: 1%;
+    margin: 5px 0px; }
+    section.form-section div.form-element label {
+      font-family: roboto-bold;
+      width: 100%; }
+  section.form-section pre#signUp {
+    padding: 2%;
+    margin: auto;
+    margin-top: 1%;
+    background-color: transparent;
+    color: #FFFFE7;
+    font-family: roboto;
+    font-size: 15px;
+    border: 0px; }
+
+/*# sourceMappingURL=forms.css.map */

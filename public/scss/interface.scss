@@ -1,0 +1,77 @@
+@import 'fonts';
+@import 'blocks';
+@import 'colors';
+
+body {
+	background-image: url("http://i.huffpost.com/gen/1742960/images/o-EMPTY-CLASSROOM-facebook.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+
+/* BODY CONTENTS ; LOGIN PANEL*/
+#login-form{
+	width: 50%;
+	margin: auto;
+	margin-top: 10%;
+	border-radius: 2%;
+	background-color: $dark-block-bg;
+	color: $white;
+	font-family: $normal-font;
+	font-size: 20px;
+	text-align: center;
+
+
+	h1{
+		font-family: $big-font;
+		font-size: 50px;
+		letter-spacing: 3px;
+		padding-top: 20px;
+		color: $light-gray;
+	}
+
+	a{
+		color: $white;
+		font-family: Roboto-Bold;
+	}
+
+	a:hover{
+		color: $light-gray;
+		text-decoration: none;
+	}
+
+	
+}
+	#login-contents{
+		margin: 10px 0px 10px 0;
+		padding: 10px 30px 30px 30px;
+	}
+
+	.custom{
+		width: 75%;
+	}
+
+	#not-a-member{
+		font-size: 17px;
+	}
+
+	#side-panel{
+		margin-top: 2%;
+		border-radius: 2%;
+		border: 2px;
+		width: 25%;
+		background-color: $dark-block-bg;
+		float: left;
+		padding: 2%;
+	}
+	
+	#post-panel, #req-panel{
+		margin-top: 2%;
+		border-radius: 2%;
+		float: right;
+		border: 3px;
+		width: 70%;
+		background-color: $dark-block-bg;
+		padding: 2%;
+		
+	}

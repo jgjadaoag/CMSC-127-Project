@@ -1,0 +1,26 @@
+.dark-block {
+  background-color: rgba(79, 77, 80, 0.5);
+  color: #FFFFE7; }
+
+#post-stream {
+  padding: 10px; }
+
+article.post {
+  background-color: rgba(79, 77, 80, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 10px 10px 10px; }
+  article.post img.user-photo {
+    margin-top: 10px; }
+  article.post section.post-body h1 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px; }
+  article.post section.post-body hr {
+    width: 90%;
+    height: 1px;
+    border: 0;
+    background: #0D3824;
+    margin-right: 10%; }
+
+/*# sourceMappingURL=dark-posts.css.map */

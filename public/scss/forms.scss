@@ -1,0 +1,51 @@
+@import 'blocks';
+@import 'colors';
+
+section.form-section {
+	padding:2%;
+	width:65%;
+	margin:auto;
+	margin-top: 1%;
+	border-radius: 2%;
+	font-family: roboto;
+	font-size: 15px;
+
+	input[type="text"], input[type="password"] {
+		color: $dark-gray;
+		padding: 0.4%;
+	}
+
+	legend {
+		font-family: roboto-bold;
+		border: 0;
+	}
+
+	h1 {
+		font-family: built-titling;
+		font-size: 50px;
+		letter-spacing: 3px;
+	}
+
+	div.form-element {
+		padding-bottom:1%;
+		margin: 5px 0px;
+
+		label {
+			font-family: roboto-bold;
+			width: 100%;
+		}
+	}
+
+	pre#signUp{
+		padding:2%;
+		margin:auto;
+		margin-top: 1%;
+		background-color: transparent;
+		color: $white;
+		font-family: roboto;
+		font-size: 15px;
+		border: 0px;
+		
+	}
+}
+

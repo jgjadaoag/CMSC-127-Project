@@ -1,0 +1,102 @@
+@import 'colors';
+@import 'blocks';
+@import 'fonts';
+
+body {
+	background-image: none;
+	color: $light-gray;
+	background-color: $dark-gray;
+	font-family: $normal-font;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:$maroon;
+	font-family: $big-font;
+}
+
+a, a:visited {
+	color: $white;
+}
+
+header {
+	background-color: $block-bg;
+	padding: 0.5%;
+	font-size: 40px;
+	font-family: built-titling-bold;
+	letter-spacing: 3px;
+
+	span#display-name {
+		height:80%;
+		margin: 10% 10px;
+		font-size: 20px;
+		color: $dark-gray;
+	}
+
+
+	#page-title {
+		float:left;
+
+		a {
+			color: $maroon;
+			text-decoration: none;
+		}
+	}
+
+	#option {
+		float: right;
+
+		button {
+			font-family: built-titling;
+			letter-spacing: 2px;
+			font-size: 20px;
+			background-color: $light-gray;
+			margin-left: 30px;
+		}
+	}
+}
+
+div#content {
+}
+
+.inline {
+	display: inline;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.content-holder {
+	padding: 10px;
+	border-radius: $block-radius;
+	background-color: $dark-block-bg;
+}
+.sidebar {
+	margin: 10px 0;
+	nav {
+		div {
+			margin: 10px 0px;
+		}
+		a {
+			display: block;
+		}
+		hr {
+			margin: 0 10%;
+			width: 80%;
+			background: $green;
+			height: 1px;
+		}
+	}
+}
+
+img.user-photo {
+	border-radius: 20%;
+	width: 70px;
+}
+
+
