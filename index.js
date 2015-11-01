@@ -9,3 +9,13 @@ var server = app.listen(3000, function() {
 	console.log('NodeJS Web server is running at http://%s:%s', host, port);
 });
 
+var db = require(__dirname + "/lib/postgresql.js");
+
+app.get("/data", function(req, res) {
+	db.query("SELECT * FROM itstaff", function(err, result) {
+		if(err) {
+			return console.error("Error running query", err);
+		}
+		res.end(JSON.stringify(result.rows));
+	});
+});
