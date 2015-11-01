@@ -7,9 +7,11 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/default.css">
 		<link rel="stylesheet" type="text/css" href="css/view-students.css">
+		<script src="js/angular.js"></script>
+		<script src="js/classroom.js"></script>
 	</head>
 
-	<body>
+	<body ng-app="classroom">
 	<!-- header -->
 		<header class="wrapping-panel">
 			<div class="container">
@@ -43,128 +45,14 @@
 			<div class="col-md-8" id="student-panel">
 				<h2>CMSC 127 ST-1L</h2>
 				<hr>
-					<div class="table-responsive">
-  					<table class="table">
-					<tr>
-						<td>Juan dela Cruz</td>
-						<td>2013-92867</td>
-						<td>BS Computer Science</td>
+					<div>
+  					<table class="table" ng-controller="studentListCtrl">
+					<tr ng-repeat="student in students">
+						<td>{{student.name}}</td>
+						<td>{{student.idNumber}}</td>
+						<td>{{student.degree}}</td>
 					</tr>
-					<tr>
-						<td>Joseph Adaoag</td>
-						<td>2013-09576</td>
-						<td>BS Statistics</td>
-					</tr>
-					<tr>
-						<td>Angelica Carrasco</td>
-						<td>2014-79830</td>
-						<td>BS Applied Physics</td>
-					</tr>
-					<tr>
-						<td>Cacai Esguerra</td>
-						<td>2012-68217</td>
-						<td>BS Agriculture</td>
-					</tr>
-					<tr>
-						<td>Graceal Villamor</td>
-						<td>2010-34859</td>
-						<td>BS Computer Science</td>
-					</tr>
-					<tr>
-						<td>Prince Karlo Aragones</td>
-						<td>2019-09876</td>
-						<td>BS Nutrition</td>
-					</tr>
-					<tr>
-						<td>Dingdong Dantes</td>
-						<td>1999-34869</td>
-						<td>BS Civil Engineering</td>
-					</tr>
-					<tr>
-						<td>Jose Protacio Rizal Mercado</td>
-						<td>1877-12957</td>
-						<td>BS Applied Physics</td>
-					</tr>
-					<tr>
-						<td>Juan dela Cruz</td>
-						<td>2013-92867</td>
-						<td>BS Computer Science</td>
-					</tr>
-					<tr>
-						<td>Joseph Adaoag</td>
-						<td>2013-09576</td>
-						<td>BS Statistics</td>
-					</tr>
-					<tr>
-						<td>Angelica Carrasco</td>
-						<td>2014-79830</td>
-						<td>BS Applied Physics</td>
-					</tr>
-					<tr>
-						<td>Cacai Esguerra</td>
-						<td>2012-68217</td>
-						<td>BS Agriculture</td>
-					</tr>
-					<tr>
-						<td>Graceal Villamor</td>
-						<td>2010-34859</td>
-						<td>BS Computer Science</td>
-					</tr>
-					<tr>
-						<td>Prince Karlo Aragones</td>
-						<td>2019-09876</td>
-						<td>BS Nutrition</td>
-					</tr>
-					<tr>
-						<td>Dingdong Dantes</td>
-						<td>1999-34869</td>
-						<td>BS Civil Engineering</td>
-					</tr>
-					<tr>
-						<td>Jose Protacio Rizal Mercado</td>
-						<td>1877-12957</td>
-						<td>BS Applied Physics</td>
-					</tr>
-					<tr>
-						<td>Juan dela Cruz</td>
-						<td>2013-92867</td>
-						<td>BS Computer Science</td>
-					</tr>
-					<tr>
-						<td>Joseph Adaoag</td>
-						<td>2013-09576</td>
-						<td>BS Statistics</td>
-					</tr>
-					<tr>
-						<td>Angelica Carrasco</td>
-						<td>2014-79830</td>
-						<td>BS Applied Physics</td>
-					</tr>
-					<tr>
-						<td>Cacai Esguerra</td>
-						<td>2012-68217</td>
-						<td>BS Agriculture</td>
-					</tr>
-					<tr>
-						<td>Graceal Villamor</td>
-						<td>2010-34859</td>
-						<td>BS Computer Science</td>
-					</tr>
-					<tr>
-						<td>Prince Karlo Aragones</td>
-						<td>2019-09876</td>
-						<td>BS Nutrition</td>
-					</tr>
-					<tr>
-						<td>Dingdong Dantes</td>
-						<td>1999-34869</td>
-						<td>BS Civil Engineering</td>
-					</tr>
-					<tr>
-						<td>Jose Protacio Rizal Mercado</td>
-						<td>1877-12957</td>
-						<td>BS Applied Physics</td>
-					</tr>
+					</table>
 					</div>
 		</div>
 		</div>

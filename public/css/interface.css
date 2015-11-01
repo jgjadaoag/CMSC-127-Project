@@ -50,6 +50,8 @@ body {
 #login-contents {
   margin: 10px 0px 10px 0;
   padding: 10px 30px 30px 30px; }
+  #login-contents form input {
+    color: #333D38; }
 
 .custom {
   width: 75%; }
