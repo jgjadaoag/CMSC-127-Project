@@ -8,9 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="../css/dark-default.css">
 		<link rel="stylesheet" type="text/css" href="../css/interface.css">
 		<link rel="stylesheet" href="../css/dark-posts.css">
+		<script src="../js/angular.js"></script>
+		<script src="../js/teacher.js"></script>
 	</head>
 
-	<body>
+	<body ng-app="teacher">
 	<!-- header -->
 		<header class="wrapping-panel">
 			<div class="container">
@@ -40,29 +42,11 @@
 						<div class="col-md-12 text-center"><a href="../settings.html">Settings</a></div>
 					</nav>
 				</div>
-				<div class="col-md-9" id="post-stream">
-					<article class="row post">
+				<div class="col-md-9" id="post-stream" ng-controller="studentGradeCtrl">
+					<article class="row post" ng-repeat="studentGrade in studentGrades">
 						<section class="post-body"> 
-							<span><h1 class="inline">Angelica Carrasco</h1></span>
-							<span class="float-right grade">Grade: 92%</span>
-						</section>
-					</article>
-					<article class="row post">
-						<section class="post-body"> 
-							<span><h1 class="inline">Juan dela Cruz</h1></span>
-							<span class="float-right grade">Grade: 60%</span>
-						</section>
-					</article>
-					<article class="row post">
-						<section class="post-body"> 
-							<span><h1 class="inline">Cacai Esguerra</h1></span>
-							<span class="float-right grade">Grade: 90%</span>
-						</section>
-					</article>
-					<article class="row post">
-						<section class="post-body"> 
-							<span><h1 class="inline">Dingdong Dantes</h1></span>
-							<span class="float-right grade">Grade: 10%</span>
+							<span><h1 class="inline">{{studentGrade.student.name}}</h1></span>
+							<span class="float-right grade">Grade: {{studentGrade.grade}}</span>
 						</section>
 					</article>
 				</div>

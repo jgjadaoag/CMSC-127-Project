@@ -10,6 +10,40 @@ teacher.factory("RequirementService", function() {
 	};
 });
 
+teacher.factory("StudentGradeService", function() {
+	var studentGrades = [{"student":{"name":"Angelica Carrasco"},"grade":"92%"},{"student":{"name":"Juan dela Cruz"},"grade":"60%"},{"student":{"name":"Cacai Esguerra"},"grade":"90%"},{"student":{"name":"Dingdong Dantes"},"grade":"10%"}];
+
+	return {
+		getAll: function() {
+			return studentGrades;
+		}
+	};
+});
+
+teacher.factory("RequirementListService", function () {
+	var requirementList = [
+	{
+		"name": "Exercise 4",
+		"maxGrade": 10
+	}
+	];
+
+	return {
+		getAll: function() {
+			return requirementList;
+		}
+	};
+});
+
+
 teacher.controller("requirementsCtrl", ["$scope", "RequirementService", function($scope, RequirementService) {
 	$scope.requirements = RequirementService.getAll();
+}]);
+
+teacher.controller("studentGradeCtrl", ["$scope", "StudentGradeService", function($scope, StudentGradeService) {
+	$scope.studentGrades = StudentGradeService.getAll();
+}]);
+
+teacher.controller("requirementListCtrl", ["$scope", "RequirementListService", function($scope, RequirementListService) {
+	$scope.requirementList = RequirementListService.getAll();
 }]);
