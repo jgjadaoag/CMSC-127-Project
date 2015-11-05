@@ -13,7 +13,7 @@
 		<header class="wrapping-panel">
 			<div class="container">
 				<span clas="col-md-6" id="page-title">
-					<a href="interface.html" title="Home">
+					<a href="feed.html" title="Home">
 					<span class="glyphicon glyphicon-book"></span>
 					lorem Ipsum</a>
 				</span>
@@ -36,7 +36,7 @@
 						</div>
 					</div>
 					<nav class="row">
-						<div class="col-md-12 text-center"><a href="join-group.html">Enroll</a></div>
+						<div class="col-md-12 text-center"><a href="student/join-group.html">Enroll</a></div>
 						<hr class="separator" />
 						<div class="col-md-12 text-center"><a href="settings.html">Settings</a></div>
 					</nav>
@@ -48,7 +48,7 @@
 							<img src="{{post.user.profPic}}" class="user-photo" />
 						</section>
 						<section class="col-md-10 post-body">
-							<a href="post.class.portal"><h1>{{post.class.name}}</h1></a>
+							<a href="{{post.class.portal}}"><h1>{{post.class.name}}</h1></a>
 							<hr />
 							<p>{{post.body | limitTo:postTextLimit }} <span ng-show="post.body.length > 250">...</span></p>
 						</section>

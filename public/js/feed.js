@@ -8,7 +8,7 @@ feed.factory("PostService", function() {
 		},
 		"class": {
 			"name": "Fashion 1",
-			"portal": "group.html",
+			"portal": "groups.html",
 		},
 		"body": "Sed hendrerit elementum molestie. Maecenas tortor neque, tristique et varius sed, blandit eget eros. Etiam metus massa, consectetur nec nulla sed, commodo consequat felis. Pellentesque nibh diam, volutpat blandit odio sed, viverra sollicitudin nulla. Sed ac facilisis tellus. Pellentesque...."
 	},
@@ -18,7 +18,7 @@ feed.factory("PostService", function() {
 		},
 		"class": {
 			"name": "Lorem Ipsum 127",
-			"portal": "group.html",
+			"portal": "groups.html",
 		},
 		"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis nulla neque. Suspendisse in urna eu felis efficitur sodales sit amet vel sapien. Aenean rutrum, turpis ut eleifend semper, augue felis pulvinar arcu, a elementum justo neque ut risus. Praesent id posuere ...."
 	},
@@ -28,7 +28,7 @@ feed.factory("PostService", function() {
 		},
 		"class": {
 			"name": "Sex Education",
-			"portal": "group.html",
+			"portal": "groups.html",
 		},
 		"body": "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In sagittis eget ipsum ut consequat. Aliquam vel mauris et mauris faucibus accumsan a a lorem. Fusce malesuada bibendum semper. Aenean venenatis non dolor non lobortis. Nunc ornare finibus mi."
 	},
@@ -38,7 +38,7 @@ feed.factory("PostService", function() {
 		},
 		"class": {
 			"name": "Fashion 11",
-			"portal": "group.html",
+			"portal": "groups.html",
 		},
 		"body": "sagittis ullamcorper lobortis. Sed ac tortor ac mi iaculis egestas et eget lorem. Aenean in diam leo. Morbi et cursus augue, et venenatis enim"
 	}
