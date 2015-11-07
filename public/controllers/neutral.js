@@ -1,6 +1,8 @@
-var feed = angular.module("feed", []);
+'use strict';
 
-feed.factory("PostService", function() {
+var neutral = angular.module("app.neutral", ["ngRoute"]);
+
+neutral.factory("PostService", function() {
 	var posts = [
 	{
 		"user": {
@@ -54,7 +56,7 @@ feed.factory("PostService", function() {
 	};
 });
 
-feed.factory("UserService", function() {
+neutral.factory("UserService", function() {
 	var user = {
 		"name": "Angec Carrasco",
 		"idNumber": "2013-39123",
@@ -68,12 +70,25 @@ feed.factory("UserService", function() {
 	};
 });
 
-feed.controller("streamCtrl", ["$scope", "PostService", function($scope, PostService) {
+neutral.controller("streamCtrl", ["$scope", "PostService", function($scope, PostService) {
 	$scope.nameLimit = 20;
 	$scope.postTextLimit = 250;
 	$scope.posts = PostService.getAll();
 }]);
 
-feed.controller("sideCtrl", ["$scope", "UserService", function($scope, UserService) {
+neutral.controller("sideCtrl", ["$scope", "UserService", function($scope, UserService) {
 	$scope.user = UserService.getUser();
 }]);
+
+neutral.config(["$routeProvider", function($routeProvider) {
+	$routeProvider
+		.when("/feed", {
+			"controller": "",
+			"templateUrl": "/views/feed.html"
+		})
+		.when("/group/:groupid", {
+			"controller": "",
+			"templateUrl": "/views/groups.html"
+		});
+}]);
+
