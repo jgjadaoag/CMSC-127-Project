@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("app", ["ngRoute", "app.neutral"])
-	.config(["$routeProvider", function ($routeProvider) {
+	.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
 		$routeProvider
 			.otherwise({"redirectTo": "login"});
 	}]);

@@ -19,17 +19,23 @@
 						<span class="glyphicon glyphicon-book"></span>
 						lorem Ipsum</a>
 					</div>
+					<div class="col-md-4 col-md-offset-2" id="option" ng-controller="userCtrl">
+						<span ng-show="user">
+							<a class="btn btn-default btn-md">{{user.firstname}}</a>
+							<a href="/logout" class="btn btn-default btn-md">Logout</a>
+						</span>
+					</div>
 				</div>
 			</div>
 		</header>
 		<div class="container" ng-view=""></div>
-		<script src="./js/jquery-2.1.4.js"></script>
-		<script src="./js/angular.js"></script>
-		<script src="./js/angular-route.js"></script>
-		<script src="./app.js"></script>
-		<script src="./controllers/classroom.js"></script>
-		<script src="./controllers/neutral.js"></script>
-		<script src="./controllers/teacher.js"></script>
+		<script src="js/jquery-2.1.4.js"></script>
+		<script src="js/angular.js"></script>
+		<script src="js/angular-route.js"></script>
+		<script src="app.js"></script>
+		<script src="controllers/classroom.js"></script>
+		<script src="controllers/neutral.js"></script>
+		<script src="controllers/teacher.js"></script>
 	</body>
 
 </html>

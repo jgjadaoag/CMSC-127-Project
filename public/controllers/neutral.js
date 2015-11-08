@@ -56,16 +56,39 @@ neutral.factory("PostService", function() {
 	};
 });
 
-neutral.factory("UserService", function() {
+neutral.factory("UserService", ["$http", function($http) {
+	/*
 	var user = {
 		"name": "Angec Carrasco",
 		"idNumber": "2013-39123",
 		"profPic": "img/profpic1.jpg"
 	};
 
+	$http.get("/info").success(function(data) {
+		user =  data;
+		console.log(user);
+	});
+	*/
+
 	return {
-		getUser: function() {
-			return user;
+		getUserSession: function() {
+			return $http.get("/info");;
+		}
+	};
+}]);
+
+neutral.factory("ClassService", function() {
+	var group = {
+		"portal": "1",
+		"description": "This is spartan training",
+		"section": "ab-1l",
+		"coursecode": "SPRTA 1",
+		"teacheremployee": "1234567890"
+	};
+
+	return {
+		getClass: function() {
+			return group;
 		}
 	};
 });
@@ -76,19 +99,32 @@ neutral.controller("streamCtrl", ["$scope", "PostService", function($scope, Post
 	$scope.posts = PostService.getAll();
 }]);
 
-neutral.controller("sideCtrl", ["$scope", "UserService", function($scope, UserService) {
-	$scope.user = UserService.getUser();
+neutral.controller("userCtrl", ["$scope", "UserService", function($scope, UserService) {
+	$scope.user = {};
+	var handleSuccess = function(data, status) {
+		$scope.user = data;
+	};
+	UserService.getUserSession().success(handleSuccess);
 }]);
+
+neutral.controller("classCtrl", ["$scope", "ClassService", function($scope, ClassService) {
+	$scope.group = ClassService.getClass();
+}]);
+
 
 neutral.config(["$routeProvider", function($routeProvider) {
 	$routeProvider
 		.when("/feed", {
 			"controller": "",
-			"templateUrl": "/views/feed.html"
+			"templateUrl": "/user/views/feed.html"
 		})
 		.when("/group/:groupid", {
+			"controller": "classCtrl",
+			"templateUrl": "/user/views/groups.html"
+		})
+		.when("/settings", {
 			"controller": "",
-			"templateUrl": "/views/groups.html"
+			"templateUrl": "/user/views/settings.html"
 		});
 }]);
 

@@ -1,79 +1,48 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<title> Home </title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/dark-default.css">
-		<link rel="stylesheet" type="text/css" href="css/interface.css">
-	</head>
-
-	<body>
-	<!-- header -->
-		<header class="wrapping-panel">
-			<div class="container">
-				<span clas="col-md-6" id="page-title">
-					<a href="feed.html" title="Home">
-					<span class="glyphicon glyphicon-book"></span>
-					lorem Ipsum</a>
-				</span>
-				<span class="col-md-6 text-right" id="option">
-					<span id="display-name">Angec Carrasco</span>
-					<button type="button" class="btn btn-default btn-md">Logout</button>
-				</span>
+<div class="row">
+	<div class="col-md-3 sidebar content-holder" ng-controller="userCtrl">
+		<div class="row" id="user-info">
+			<div class="col-md-4">
+				<img src="{{user.profPic}}" class="user-photo">
 			</div>
-		</header>
-		<div class="container" id="content">
-			<div class="row">
-				<div class="col-md-3 sidebar content-holder">
-					<div class="row" id="user-info">
-						<div class="col-md-4">
-						<img src="img/profpic1.jpg" class="user-photo">
-						</div>
-						<div class="col-md-8">
-							<p>Angec Carrasco</p>
-							<p>2013-39123</p>
-						</div>
-					</div>
-					<nav class="row">
-						<div class="col-md-12 text-center"><a href="student/join-group.html">Enroll</a></div>
-						<hr class="separator" />
-						<div class="col-md-12 text-center"><a href="settings.html">Settings</a></div>
-					</nav>
-				</div>
-				<section class="col-md-9 form-section">
-					<div class="content-holder">
-						<h1>Settings</h1>
-						<hr>
-						<h3>Security</h3>
-						<h4>Change Password</h4>
-						<form>
-							<div class="row form-element" id="password-form">
-								<label class="col-md-offset-1 col-md-3">
-									Current Password
-								</label>
-								<input class="col-md-3" type="password" name="old-password">
-							</div>
-							<div class="row form-element" id="new-password-form">
-								<label class="col-md-offset-1 col-md-3">
-									New Password
-								</label>
-								<input class="col-md-3" type="password" name="new-password">
-							</div>
-							<div class="row form-element" id="new-password-conf-form">
-								<label class="col-md-offset-1 col-md-3">
-									Confirm New Password
-								</label>
-								<input class="col-md-3" type="password" name="new-password-confirm">
-							</div>
-							<div class="row form-element" id="submit-button">
-								<button type="submit" class="col-md-3 col-md-offset-1 btn btn-primary custom">Submit</button>
-							</div>
-					</div>
-				</div>
+			<div class="col-md-8">
+				<p>{{user.name}}</p>
+				<p>{{user.idNumber}}</p>
 			</div>
 		</div>
-	</body>
-
-</html>
+		<nav class="row">
+			<div class="col-md-12 text-center"><a href="student/join-group.html">Enroll</a></div>
+			<hr class="separator" />
+			<div class="col-md-12 text-center"><a href="settings.html">Settings</a></div>
+		</nav>
+	</div>
+	<section class="col-md-9 form-section">
+		<div class="content-holder">
+			<h1>Settings</h1>
+			<hr>
+			<h3>Security</h3>
+			<h4>Change Password</h4>
+			<form method="post" action="/user/settings">
+				<div class="row form-element" id="password-form">
+					<label class="col-md-offset-1 col-md-3">
+						Current Password
+					</label>
+					<input class="col-md-3" type="password" name="old-password">
+				</div>
+				<div class="row form-element" id="new-password-form">
+					<label class="col-md-offset-1 col-md-3">
+						New Password
+					</label>
+					<input class="col-md-3" type="password" name="new-password">
+				</div>
+				<div class="row form-element" id="new-password-conf-form">
+					<label class="col-md-offset-1 col-md-3">
+						Confirm New Password
+					</label>
+					<input class="col-md-3" type="password" name="new-password-confirm">
+				</div>
+				<div class="row form-element" id="submit-button">
+					<button type="submit" class="col-md-3 col-md-offset-1 btn btn-primary custom">Submit</button>
+				</div>
+		</div>
+	</div>
+</div>

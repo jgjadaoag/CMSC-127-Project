@@ -84,13 +84,10 @@ app.get('/logout',
     res.redirect('/');
   });
 
-/*
-app.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res){
-    res.render('profile', { user: req.user });
-  });
-  */
+app.get("/info", function(req, res) {
+	res.send(req.user);
+});
+
 app.use('/user',
   require('connect-ensure-login').ensureLoggedIn(),
 	express.static(__dirname + '/public')
