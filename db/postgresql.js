@@ -2,7 +2,7 @@ var pg = require("pg");
 var dbMeta = {
 	"user": "cacai",
 	"pass": "ganda",
-	"db": "testDB"
+	"db": "classroom"
 };
 var conString = "postgres://" + dbMeta.user + ":" + dbMeta.pass + "@localhost/" + dbMeta.db;
 
@@ -11,13 +11,6 @@ client.connect(function(err) {
 	if(err) {
 		return console.error('coud not connect to postgres', err);
 	}
-	client.query("SELECT * FROM staff", function(err, result) {
-		if(err) {
-			return console.error("Error running query", err);
-		}
-		console.log(result.rows);
-
-	});
 });
 
 module.exports = client;
