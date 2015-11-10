@@ -62,6 +62,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Define routes.
+/*
 app.get('/',
   function(req, res) {
     res.render('home', { user: req.user });
@@ -71,11 +72,12 @@ app.get('/login',
   function(req, res){
     res.render('login');
   });
+ */
   
 app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
+  passport.authenticate('local', { failureRedirect: '/#/login' }),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/user/#/feed');
   });
   
 app.get('/logout',
@@ -88,8 +90,12 @@ app.get("/info", function(req, res) {
 	res.send(req.user);
 });
 
+app.use('/',
+	express.static(__dirname + '/static')
+  );
 app.use('/user',
   require('connect-ensure-login').ensureLoggedIn(),
+  //passport.authenticate('local', { failureRedirect: '/#/login' }),
 	express.static(__dirname + '/public')
   );
 

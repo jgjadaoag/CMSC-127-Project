@@ -125,6 +125,14 @@ neutral.config(["$routeProvider", function($routeProvider) {
 		.when("/settings", {
 			"controller": "",
 			"templateUrl": "/user/views/settings.html"
+		})
+		.when("/students", {
+			"controller": "",
+			"templateUrl": "/user/views/view-students.html"
+		})
+		.when("/files/:fileid", {
+			"controller": "",
+			"templateUrl": "/user/views/view-file.html"
 		});
 }]);
 
