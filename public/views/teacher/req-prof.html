@@ -1,75 +1,39 @@
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<title> Join Group </title>
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/default.css">
-		<link rel="stylesheet" type="text/css" href="../css/view-students.css">
-		<script src="../js/angular.js"></script>
-		<script src="../js/teacher.js"></script>
-	</head>
-
-	<body ng-app="teacher">
-	<!-- header -->
-		<header class="wrapping-panel">
-			<div class="container">
-				<div class="col-md-12" id="nav-bar">
-					<span clas="col-md-6" id="page-title">
-						<a href="../groups.html" title="Home">
-						<span class="glyphicon glyphicon-book"></span>
-						Lorem Ipsum</a>
-					</span>
-					<span class="col-md-4" id="option">
-						<button type="button" class="btn btn-default btn-md">Joshze Rica</button>
-						<button type="button" class="btn btn-default btn-md">Logout</button>	
-					</span>
-				</div>
+<div class="container">
+	<div class="col-md-3" id="info-panel">
+		<h3>CMSC 127</h3>
+		<h4>File Processing and Database Systems</h4>
+		<h5>ST-1L</h5>
+		<h5>Mary Grace Primavera-Angeles</h5>
+		<hr>
+		<h4>Code: qx67ykh3</h4>
+		<hr>
+		<h5><a href="create-group.html">Unenroll</a></h5>
+		<h5><a href="../view-students.html">View Students</a></h5>
+		<br />
+	</div>
+	<div class="col-md-8" id="student-panel">
+		<h2>Exercise 4</h2>
+		<p><span id="smaller">Posted July 5, 2015 | Deadline July 15, 2015</span></p>
+		<p><span id="smaller">Maximum Points: 10</span></p>
+		<p><span id="smaller">Write an Erlang program that accepts two strings and then prints the length of the longest common subsequence.The Longest Common Subsequence (LCS) of two strings A and B is the set of all characters in A that matched with string B which appeared in the same order.</span></p>
+		<hr>
+			<div class="table-responsive">
+				<table class="table" id="exers" >
+				
+					<tr>
+						<th>Student Number</th>
+						<th>Date Submitted</th>
+						<th> </th>
+						<th>Grade</th>
+					</tr>
+					<tbody ng-controller="requirementsCtrl">
+						<tr ng-repeat="requirement in requirements">
+							<td>{{requirement.student.idNumber}}</td>
+							<td>{{requirement.dateSubmitted}}</td>
+							<td><span ng-show="requirement.url.length > 0"><a href="{{requirement.url}}">VIEW WORK</a></span></td>
+							<td>{{requirement.grade}}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		</header>
-		<div class="wrapping-panel">
-		<div class="container">
-			<div class="col-md-3" id="info-panel">
-				<h3>CMSC 127</h3>
-				<h4>File Processing and Database Systems</h4>
-				<h5>ST-1L</h5>
-				<h5>Mary Grace Primavera-Angeles</h5>
-				<hr>
-				<h4>Code: qx67ykh3</h4>
-				<hr>
-				<h5><a href="create-group.html">Unenroll</a></h5>
-				<h5><a href="../view-students.html">View Students</a></h5>
-				<br />
-			</div>
-			<div class="col-md-8" id="student-panel">
-				<h2>Exercise 4</h2>
-				<p><span id="smaller">Posted July 5, 2015 | Deadline July 15, 2015</span></p>
-				<p><span id="smaller">Maximum Points: 10</span></p>
-				<p><span id="smaller">Write an Erlang program that accepts two strings and then prints the length of the longest common subsequence.The Longest Common Subsequence (LCS) of two strings A and B is the set of all characters in A that matched with string B which appeared in the same order.</span></p>
-				<hr>
-					<div class="table-responsive">
-						<table class="table" id="exers" >
-						
-							<tr>
-								<th>Student Number</th>
-								<th>Date Submitted</th>
-								<th> </th>
-								<th>Grade</th>
-							</tr>
-							<tbody ng-controller="requirementsCtrl">
-								<tr ng-repeat="requirement in requirements">
-									<td>{{requirement.student.idNumber}}</td>
-									<td>{{requirement.dateSubmitted}}</td>
-									<td><span ng-show="requirement.url.length > 0"><a href="{{requirement.url}}">VIEW WORK</a></span></td>
-									<td>{{requirement.grade}}</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-		</div>
-		</div>
-		
-	</body>
-
-</html>
+</div>

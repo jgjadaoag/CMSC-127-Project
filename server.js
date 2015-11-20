@@ -102,4 +102,4 @@ app.use('/user',
 
 //app.use('/user', express.static(__dirname + '/public'));
 
-app.listen(3000);
+app.listen(5000);

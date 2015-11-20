@@ -118,7 +118,7 @@ neutral.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/feed.html"
 		})
-		.when("/group/:groupid", {
+		.when("/class/:classid", {
 			"controller": "classCtrl",
 			"templateUrl": "/user/views/groups.html"
 		})
@@ -130,7 +130,7 @@ neutral.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/view-students.html"
 		})
-		.when("/files/:fileid", {
+		.when("/class/:groupid/files/:fileid", {
 			"controller": "",
 			"templateUrl": "/user/views/view-file.html"
 		});
