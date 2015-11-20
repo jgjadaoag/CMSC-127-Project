@@ -54,12 +54,24 @@ teacher.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-group.html"
 		})
-		.when("/class/:classid/create-requirement", {
+		.when("/class/:classid/requirement/create", {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-requirement.html"
 		})
 		.when("/class/:classid/equirement/:requirementid", {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/req-prof.html"
+		})
+		.when("/class/:classid/upload", {
+			"controller": "",
+			"templateUrl": "/user/views/teacher/upload-file.html"
+		})
+		.when("/class/:classid/grades", {
+			"controller": "",
+			"templateUrl": "/user/views/teacher/view-grades.html"
+		})
+		.when("/class/:classid/equirement/", {
+			"controller" : "",
+			"templateUrl": "/user/views/teacher/view-requirements.html"
 		});
 }]);
