@@ -1,12 +1,12 @@
 .dark-block {
-  background-color: rgba(79, 77, 80, 0.5);
+  background-color: rgba(30, 30, 30, 0.7);
   color: #FFFFE7; }
 
 #post-stream {
   padding: 10px; }
 
 article.post {
-  background-color: rgba(79, 77, 80, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   padding: 10px;
   margin: 0px 10px 10px 10px; }

@@ -2,12 +2,12 @@
 @import 'blocks';
 @import 'colors';
 
-body {
-	background-image: url("http://i.huffpost.com/gen/1742960/images/o-EMPTY-CLASSROOM-facebook.jpg");
+body{
+	background-image: url("https://c2.staticflickr.com/8/7352/11967189304_711bb77593_b.jpg");
 	background-repeat: no-repeat;
-	background-position: right top;
+	background-size: cover;
+	background-position: top;
 }
-
 
 /* BODY CONTENTS ; LOGIN PANEL*/
 #login-form{
@@ -15,7 +15,7 @@ body {
 	margin: auto;
 	margin-top: 10%;
 	border-radius: 2%;
-	background-color: $dark-block-bg;
+	background-color: rgba(30,30,30,0.7);
 	color: $white;
 	font-family: $normal-font;
 	font-size: 20px;
