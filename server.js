@@ -75,10 +75,10 @@ app.get('/login',
  */
   
 app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/#/login' }),
-  function(req, res) {
-    res.redirect('/user/#/feed');
-  });
+	passport.authenticate('local', { failureRedirect: '/#/login' }),
+	function(req, res) {
+		res.redirect('/user/#/feed');
+});
   
 app.get('/logout',
   function(req, res){
@@ -98,6 +98,14 @@ app.use('/user',
   //passport.authenticate('local', { failureRedirect: '/#/login' }),
 	express.static(__dirname + '/public')
   );
+
+app.use("/user/controllers/user.js", function(req, res) {
+	if(req.user.isTeacher) {
+		res.sendFile(__dirname + "/public/controllers/teacher.js");
+	} else {
+		res.sendFile(__dirname + "/public/controllers/student.js");
+	}
+});
 
 
 //app.use('/user', express.static(__dirname + '/public'));

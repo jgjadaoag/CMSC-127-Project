@@ -1,4 +1,4 @@
-var student = angular.module("app.student", ["ngRoute"]);
+var student = angular.module("app.user", ["ngRoute"]);
 
 student.config(["$routeProvider", function($routeProvider) {
 	$routeProvider
