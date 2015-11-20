@@ -126,7 +126,7 @@ neutral.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/settings.html"
 		})
-		.when("/students", {
+		.when("/class/:classid/students", {
 			"controller": "",
 			"templateUrl": "/user/views/view-students.html"
 		})

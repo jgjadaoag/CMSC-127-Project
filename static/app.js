@@ -24,5 +24,9 @@ angular.module("app", ["ngRoute"])
 				"controller": "",
 				"templateUrl": "views/student-sign-up.html"
 			})
+			.when("/teacher-sign-up", {
+				"controller": "",
+				"templateUrl": "views/teacher-sign-up.html"
+			})
 			.otherwise({"redirectTo": "/"});
 	}]);
