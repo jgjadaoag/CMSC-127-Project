@@ -6,7 +6,7 @@
   padding: 10px; }
 
 article.post {
-  background-color: rgba(250, 250, 250, 0.7);
+  background-color: rgba(250, 250, 250, 0.8);
   border-radius: 5px;
   padding: 10px;
   margin: 0px 10px 10px 10px; }
@@ -22,5 +22,7 @@ article.post {
     border: 0;
     background: #0D3824;
     margin-right: 10%; }
+  article.post a:hover {
+    color: #aaaaaa; }
 
 /*# sourceMappingURL=posts.css.map */

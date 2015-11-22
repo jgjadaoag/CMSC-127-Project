@@ -1,17 +1,23 @@
 <div class="container">
-	<div class="col-md-3" id="info-panel">
-		<h3>CMSC 127</h3>
-		<h4>File Processing and Database Systems</h4>
-		<h5>ST-1L</h5>
-		<h5>Mary Grace Primavera-Angeles</h5>
-		<hr>
-		<h4>Code: qx67ykh3</h4>
-		<hr>
-		<h5><a href="feed.html">Unenroll</a></h5>
-		<h5><a href="view-students.html">View Students</a></h5>
-		<br />
+	<div id="group-holder">
+		<div class="col-md-3" id="info-panel">
+			<h3>{{group.coursecode}}</h3>
+			<h6>{{group.description}}</h6>
+			<h5>{{group.section}}</h5>
+			<h5>{{group.teacheremail}}</h5>
+			<hr />
+			<h4>Code: {{group.portal}}</h4>
+			<hr />
+			<a>Create Requirement</a><br />
+			<a>View Requirements</a><br />
+			<a href="group/{{group.id}}/students" title="View Students">View Students</a><br />
+			<a href="group/{{group.id}}/files" title="View Files">View Files</a>
+			<br /><br />
+		</div>
 	</div>
 	<div class="col-md-8" id="file-panel">
+		<h2>{{group.coursecode}} {{group.section}}</h2>
+		<hr>
 		<h2>CMSC 127 1st Exam Slides</h2>
 		<hr>
 		<div>

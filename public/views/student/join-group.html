@@ -1,18 +1,31 @@
 <div class="container">
-<!--	<div id="side-panel">
-		<h2>{{class.name}}</h2>
+	<div class="row" ng-controller="userCtrl">
+	<div class="col-md-3 sidebar content-holder">
+		<!-- FOR STUDENT -->
+		<div class="row" id="info-panel">
+			<h4>{{user.lname}}, {{user.fname}}</h4>
+			<h5>[College]{{user.college}}</h5>
+			<h5>Student Number: {{user.studentno}}</h5>
 		<hr>
-		<sub>{{class.description}}</sub>
-		<hr>
-		<a href="../view-students.html" title="View Students">View Students</a><br />
+			<h5><a href="join-group.html">Join Group</a></h5>
+		</div>
+		<!-- FOR STUDENT -->
 	</div>
--->	<div id="post-panel">
-		<h3>Join Group</h3>
-		<hr>
-		<form action="/join-group" method="POST">
-			<br />Enter Code Below:<br />
-			<input type="text" name="code">
-			<button type="submit" name="join-group">JOIN</button>
-		</form>
+	<div class="col-md-8" id="file-panel">
+			<h2>JOIN Group</h2>
+			<p> <span id="smaller">Enter below the code given by your teacher.</span> </p>
+			<hr>
+			<form>
+				<div class="table-responsive">
+  				<table class="table">
+				<tr>
+					<td>Course Code</td>
+					<td><input type="text" name="code"></td>
+				</tr>
+				</table>
+				</div>
+				<br />
+				<button type="submit" name="create-group"formaction="group.html" class="btn btn-primary custom">JOIN</button>
+			</form>
 	</div>
 </div>

@@ -54,11 +54,11 @@ teacher.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-group.html"
 		})
-		.when("/class/:classid/requirement/create", {
+		.when("/class/:classid/equirement/create", {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-requirement.html"
 		})
-		.when("/class/:classid/equirement/:requirementid", {
+		.when("/class/:classid/requirement/:requirementid", {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/req-prof.html"
 		})

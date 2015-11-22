@@ -5,7 +5,14 @@ var db = require('./../db');
 
 
 module.exports = function(router){
-	router.route('logout')
+	router.route('/login')
+		.post(
+			passport.authenticate('local', { failureRedirect: '/#/login' }),
+			function(req, res) {
+				res.redirect('/user/#/feed');
+			});
+
+	router.route('/logout')
 		.get(
 			 function(req, res){
    				 req.logout();
