@@ -1,27 +1,19 @@
 <div class="row" ng-controller="userCtrl">
 	<div class="col-md-3 sidebar content-holder">
-		<div class="row" id="user-info">
-			<div class="col-md-4">
-				<img src="img/{{user.studentno}}.jpg" class="user-photo">
-			</div>
-			<div class="col-md-8">
-				<p>{{user.firstname}}</p>
-				<p>{{user.studentno}}</p>
-			</div>
+		<div class="row" id="info-panel">
+			<h4>{{user.lastname}}, {{user.firstname}}</h4>
+			<h5>{{user.degree}}</h5>
+			<h5>Student Number: {{user.studentno}}</h5>
+		<hr>
+			<h5><a href="join-group.html">Join Group</a></h5>
+			<h5><a href="settings.html">Account Settings</a></h5>
 		</div>
-		<nav class="row">
-			<div class="col-md-12 text-center"><a href="student/join-group.html">Enroll</a></div>
-			<hr class="separator" />
-			<div class="col-md-12 text-center"><a href="settings.html">Settings</a></div>
-		</nav>
 	</div>
 
-	<div class="col-md-9" id="post-stream" ng-controller="streamCtrl">
+	<div class="col-md-9 col-md-offset-3" id="post-stream" ng-controller="streamCtrl">
 		<article class="row post" ng-repeat="post in posts">
-			<section class="col-md-2 poster-info">
-				<img src="{{post.user.profPic}}" class="user-photo" />
-			</section>
-			<section class="col-md-10 post-body">
+			
+			<section class="post-body">
 				<a href="{{post.class.portal}}"><h1>{{post.class.name}}</h1></a>
 				<hr />
 				<p>{{post.body | limitTo:postTextLimit }} <span ng-show="post.body.length > 250">...</span></p>

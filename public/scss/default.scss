@@ -65,9 +65,34 @@ div#content {
 
 .content-holder {
 	padding: 10px;
+	padding-left: 30px;
 	border-radius: $block-radius;
-	background-color: $block-bg;
+	background-color: $dark-block-bg;
+	color: white;
+	position: fixed;
+
+	#info-panel{
+		border-radius: 5px;
+		margin: 3%;
+		margin-left: 1.5%;
+	}
+
+	#info-panel h4, h5,h3{
+		color: #FFFFE7;
+		font-family: Roboto-Bold;
+	}
 }
+
+#post-stream article{
+	margin-left: 4%;
+	padding: 10px;
+	padding-left: 30px;
+	border-radius: 2px;
+	background-color: rgba(200,205,200,0.9);
+	color: black;	
+}
+
+
 .sidebar {
 	margin: 10px 0;
 	nav {
