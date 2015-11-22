@@ -150,7 +150,7 @@ app.use('/user',
   require('connect-ensure-login').ensureLoggedIn(),
   //passport.authenticate('local', { failureRedirect: '/#/login' }),
 	express.static(__dirname + '/public')
-  );
+);
 
 app.use("/user/controllers/user.js", function(req, res) {
 	if(req.user.isTeacher) {
