@@ -55,12 +55,40 @@ app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-app.use(require(__dirname+'/config/router')(express.Router()));
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new Strategy(
+  function(username, password, cb) {
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.email);
+});
+
+passport.deserializeUser(function(id, cb) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(require(__dirname+'/config/router')(express.Router()));
+
+app.post('/login', 
+	passport.authenticate('local', { failureRedirect: '/#/login' }),
+	function(req, res) {
+		res.redirect('/user/#/feed');
+});
 
 // Define routes.
 /*
