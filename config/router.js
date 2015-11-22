@@ -1,17 +1,10 @@
-var user = require('./../db/users');
-var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
-var db = require('./../db');
+var users = require('./../db/users');
+var db = require('./../db/postgresql');
+var studentController = require('./../controllers/student.js');
+var neutralController = require('./../controllers/neutral.js');
 
 
 module.exports = function(router){
-	router.route('/login')
-		.post(
-			passport.authenticate('local', { failureRedirect: '/#/login' }),
-			function(req, res) {
-				res.redirect('/user/#/feed');
-			});
-
 	router.route('/logout')
 		.get(
 			 function(req, res){
@@ -19,11 +12,9 @@ module.exports = function(router){
    				 res.redirect('/');
   			});
 
+	router.get('/student/joinclass/:portalcode', studentController.joinClass);
 	router.route("/info")
-		.get(
-			function(req, res) {
-				res.send(req.user);
-			});
+		.get(neutralController.getInfo);
 
 
 		return router;

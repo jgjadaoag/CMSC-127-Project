@@ -1,3 +1,5 @@
+'use strict';
+
 var pg = require("./postgresql.js");
 var records
 pg.query("SELECT * FROM person", function(err, result) {
@@ -22,6 +24,40 @@ exports.findById = function(id, cb) {
 		    return console.error("Error running query", err);
 	    }
 	    if (result.rows[0]) {
+		    setRole(id, cb);
+	    } else {
+	      cb(new Error('User ' + id + ' does not exist'));
+	    }
+    });
+  });
+}
+
+function setRole (id, cb) {
+  process.nextTick(function() {
+    var user;
+    pg.query("SELECT * FROM teacher where email='" + id + "'", function(err, result) {
+	    if(err) {
+		    return console.error("Error running query", err);
+	    }
+	    if (result.rows[0]) {
+		result.rows[0].isTeacher = true;
+	      cb(null, result.rows[0]);
+	    } else {
+		    setStudent(id, cb);
+	    }
+    });
+  });
+}
+
+function setStudent (id, cb) {
+  process.nextTick(function() {
+    var user;
+    pg.query("SELECT * FROM student where email='" + id + "'", function(err, result) {
+	    if(err) {
+		    return console.error("Error running query", err);
+	    }
+	    if (result.rows[0]) {
+		result.rows[0].isTeacher = false;
 	      cb(null, result.rows[0]);
 	    } else {
 	      cb(new Error('User ' + id + ' does not exist'));
@@ -41,3 +77,4 @@ exports.findByUsername = function(username, cb) {
     return cb(null, null);
   });
 }
+
