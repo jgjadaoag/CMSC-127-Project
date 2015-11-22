@@ -59,8 +59,8 @@ app.use(require(__dirname+'/config/router')(express.Router()));
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
-//app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Define routes.
 /*
