@@ -34,7 +34,7 @@ exports.findByUsername = function(username, cb) {
   process.nextTick(function() {
     for (var i = 0, len = records.length; i < len; i++) {
       var record = records[i];
-      if (record.studentno === username) {
+      if (record.email === username) {
         return cb(null, record);
       }
     }

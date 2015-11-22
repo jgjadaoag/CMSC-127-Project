@@ -29,7 +29,7 @@ passport.use(new Strategy(
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function(user, cb) {
-  cb(null, user.studentno);
+  cb(null, user.email);
 });
 
 passport.deserializeUser(function(id, cb) {
