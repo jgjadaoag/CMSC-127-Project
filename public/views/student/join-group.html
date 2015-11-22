@@ -1,18 +1,18 @@
 <div class="container">
-	<div id="side-panel">
-		<h2>GROUP NAME</h2>
+<!--	<div id="side-panel">
+		<h2>{{class.name}}</h2>
 		<hr>
-		<sub>Group Description</sub>
+		<sub>{{class.description}}</sub>
 		<hr>
 		<a href="../view-students.html" title="View Students">View Students</a><br />
 	</div>
-	<div id="post-panel">
+-->	<div id="post-panel">
 		<h3>Join Group</h3>
 		<hr>
-		<form>
+		<form action="/join-group" method="POST">
 			<br />Enter Code Below:<br />
 			<input type="text" name="code">
-			<button type="submit" name="join-group" formaction="group.html">JOIN</button>
+			<button type="submit" name="join-group">JOIN</button>
 		</form>
 	</div>
 </div>
