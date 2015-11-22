@@ -1,6 +1,6 @@
 var pg = require("./postgresql.js");
 var records
-pg.query("SELECT * FROM student", function(err, result) {
+pg.query("SELECT * FROM person", function(err, result) {
 	if(err) {
 		return console.error("Error running query", err);
 	}
@@ -17,7 +17,7 @@ var records = [
 exports.findById = function(id, cb) {
   process.nextTick(function() {
     var user;
-    pg.query("SELECT * FROM student where studentno='" + id + "'", function(err, result) {
+    pg.query("SELECT * FROM person where email='" + id + "'", function(err, result) {
 	    if(err) {
 		    return console.error("Error running query", err);
 	    }
