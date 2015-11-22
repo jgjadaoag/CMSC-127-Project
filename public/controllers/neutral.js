@@ -135,4 +135,3 @@ neutral.config(["$routeProvider", function($routeProvider) {
 			"templateUrl": "/user/views/view-file.html"
 		});
 }]);
-

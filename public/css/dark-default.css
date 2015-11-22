@@ -20,7 +20,7 @@
   src: url("../fonts/basictitlefont.ttf"); }
 body {
   background-image: none;
-  color: #C9C5CB;
+  color: #aaaaaa;
   background-color: #333D38;
   font-family: roboto;
   font-weight: bold; }
@@ -33,7 +33,7 @@ a, a:visited {
   color: #FFFFE7; }
 
 header {
-  background-color: rgba(250, 250, 250, 0.7);
+  background-color: rgba(250, 250, 250, 0.8);
   padding: 0.5%;
   font-size: 40px;
   font-family: built-titling-bold;
@@ -54,7 +54,7 @@ header {
       font-family: built-titling;
       letter-spacing: 2px;
       font-size: 20px;
-      background-color: #C9C5CB;
+      background-color: #aaaaaa;
       margin-left: 30px; }
 
 .inline {
