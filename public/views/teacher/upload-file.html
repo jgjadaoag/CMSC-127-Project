@@ -1,17 +1,25 @@
 <div class="container">
-	<div id="side-panel">
-		<h2>GROUP NAME</h2>
-		<hr>
-		<sub>Group Description</sub>
-		<hr>
-		<a href="" title="View Students">View Students</a><br />
-		<a href="" title="View Files">View Files</a>
+	<div id="group-holder">
+		<div class="col-md-3" id="info-panel">
+			<h3>{{group.coursecode}}</h3>
+			<h6>{{group.description}}</h6>
+			<h5>{{group.section}}</h5>
+			<h5>{{group.teacheremail}}</h5>
+			<hr />
+			<h4>Code: {{group.portal}}</h4>
+			<hr />
+			<a title="Create Requirement">Create Requirement</a><br />
+			<a title="View Requirements">View Requirements</a><br />
+			<a href="#/class/{{group.portal}}/students" title="View Students">View Students</a><br />
+			<a href="#/class/{{group.portal}}/files/{{fileupload.id}}" title="View Files">View Files</a>
+			<br /><br />
+		</div>
 	</div>
-	<div id="post-panel">
-		<h3>Add File</h3>
+	<div class="col-md-8" id="file-panel">
+		<h2>Add File</h2>
 		<form>
 			<input type="file" name="fileUpload">
-			<input type="text" name="file-description" size="50" placeholder="Description">
+			<textarea name="desc" rows="3"></textarea>
 			<input type="button" name="upload-file" value="Upload File"/>
 		</form>
 	</div>
