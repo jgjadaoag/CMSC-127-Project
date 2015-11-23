@@ -1,19 +1,21 @@
 <div class="container" id="content">
-	<div class="row">
-		<div class="col-md-3 sidebar">
-			<nav class="row content-holder">
-				<div class="col-md-12 text-center"><a href="../view-students.html">View Students</a></div>
-				<div class="col-md-12 text-center"><a href="">View Grades</a></div>
-				<hr />
-				<div class="col-md-12 text-center"><a href="create-requirement.html">Create Requirement</a></div>
-				<div class="col-md-12 text-center"><a href="view-requirements.html">View Requirements</a></div>
-				<div class="col-md-12 text-center"><a href="../view-file.html">View Files</a></div>
-				<div class="col-md-12 text-center"><a href="upload-file.html">Upload Files</a></div>
-				<hr />
-				<div class="col-md-12 text-center"><a href="../settings.html">Settings</a></div>
-			</nav>
-		</div>
-		<div class="col-md-9" id="post-stream" ng-controller="studentGradeCtrl">
+	<div id="group-holder">
+<div class="col-md-3" id="info-panel">
+	<h3>{{group.coursecode}}</h3>
+	<h6>{{group.description}}</h6>
+	<h5>{{group.section}}</h5>
+	<h5>{{group.teacheremail}}</h5>
+	<hr />
+	<h4>Code: {{group.portal}}</h4>
+	<hr />
+	<a  href="#/class/{{group.portal}}/requirement/create" title="Create Requirement">Create Requirement</a><br />
+	<a href="#/class/{{group.portal}}/requirement" title="View Requirements">View Requirements</a><br />
+	<a href="#/class/{{group.portal}}/students" title="View Students">View Students</a><br />
+	<a href="#/class/{{group.portal}}/files/{{fileupload.id}}" title="View Files">View Files</a>
+	<br /><br />
+</div>
+</div>
+		<div class="col-md-8" id="post-stream" ng-controller="studentGradeCtrl">
 			<article class="row post" ng-repeat="studentGrade in studentGrades">
 				<section class="post-body"> 
 					<span><h1 class="inline">{{studentGrade.student.name}}</h1></span>
