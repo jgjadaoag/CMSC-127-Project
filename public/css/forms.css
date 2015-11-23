@@ -14,6 +14,8 @@ section.form-section {
   border-radius: 2%;
   font-family: roboto;
   font-size: 15px; }
+  section.form-section input {
+    color: black; }
   section.form-section input[type="text"], section.form-section input[type="password"] {
     color: #333D38;
     padding: 0.4%; }

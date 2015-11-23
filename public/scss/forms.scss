@@ -11,6 +11,10 @@ section.form-section {
 	font-family: roboto;
 	font-size: 15px;
 
+	input{
+		color: black;
+	}
+
 	input[type="text"], input[type="password"] {
 		color: $dark-gray;
 		padding: 0.4%;
