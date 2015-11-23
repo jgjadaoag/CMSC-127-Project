@@ -71,3 +71,48 @@ function studentSignUp (req, res, next) {
 
 exports.viewFiles = (req, res, next) => {
 }
+
+exports.viewClass = (req, res, next) => {
+	function start() {
+		db.query('SELECT * FROM class WHERE portal = $1',
+				[req.params.portalcode],
+				(err, result) => {
+					if (err) {
+						res.send({message: "Error selecting class"});
+						return;
+					}
+					if(result.rows.length !== 1) {
+						res.send({message: "Class does not exist or you don't have permission to view this class"});
+						return;
+					}
+					checkPermission(result.rows[0]);
+				}
+			);
+	}
+
+	function checkPermission(classDetail) {
+		if (req.user.isTeacher) {
+			if (req.user.email !== classDetail.teacheremail) {
+				res.send({message: "Class does not exist or you don't have permission to view this class"});
+				return;
+			}
+			res.send(classDetail);
+		} else {
+			db.query('SELECT * FROM class_list WHERE portal = $1 and studentemail = $2 and isenrolled = true',
+					[classDetail.portal, req.user.email],
+					(err, result) => {
+						if (err) {
+							res.send({message: "Error in selecting class list"});
+							return;
+						}
+						if (result.rows.length !== 1) {
+							res.send({message: "Class does not exist or you don't have permission to view this class"});
+							return;
+						}
+						res.send(classDetail);
+			});
+		}
+	}
+
+	start();
+}

@@ -28,6 +28,10 @@ module.exports = function(router){
 	router.post('/sign-up',
 			neutralController.signUp);
 
+	router.get('/class/:portalcode/',
+			require('connect-ensure-login').ensureLoggedIn(),
+			neutralController.viewClass);
+
 	router.route("/info")
 		.get(neutralController.getInfo);
 
