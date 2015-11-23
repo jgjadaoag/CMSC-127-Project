@@ -6,13 +6,7 @@ var db = require('./../db');
 
 
 module.exports = function(router){
-	router.route('/login')
-		.post(
-			passport.authenticate('local', { failureRedirect: '/#/login' }),
-			function(req, res) {
-				res.redirect('/user/#/feed');
-			});
-
+	router.get('/login', function (req, res) {res.redirect('/#/login')});
 	router.route('/logout')
 		.get(
 			 function(req, res){
@@ -20,6 +14,12 @@ module.exports = function(router){
    				 res.redirect('/');
   			});
 
+	router.get('/student/joinclass/:portalcode', 
+			require('connect-ensure-login').ensureLoggedIn(),
+			studentController.joinClass);
+	router.get('/class/:portalcode/requirement/:requirementid', 
+			require('connect-ensure-login').ensureLoggedIn(),
+			studentController.viewRequirement);
 	router.route("/info")
 		.get(
 			function(req, res) {
