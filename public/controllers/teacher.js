@@ -54,7 +54,7 @@ teacher.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-group.html"
 		})
-		.when("/class/:classid/equirement/create", {
+		.when("/class/:classid/requirement/create", {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/create-requirement.html"
 		})
@@ -70,7 +70,7 @@ teacher.config(["$routeProvider", function($routeProvider) {
 			"controller": "",
 			"templateUrl": "/user/views/teacher/view-grades.html"
 		})
-		.when("/class/:classid/equirement/", {
+		.when("/class/:classid/requirement/", {
 			"controller" : "",
 			"templateUrl": "/user/views/teacher/view-requirements.html"
 		});
