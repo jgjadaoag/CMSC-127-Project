@@ -157,6 +157,7 @@ drop table if exists class_list;
 create table class_list(
 	portal varchar(10) not null,
 	studentemail varchar(50) not null, 
+	isenrolled boolean default false,
 	constraint student_pk Primary Key(portal, studentemail),
 	constraint class_list_portal_fk Foreign Key(portal) References class(portal),
 	constraint class_studentemail_fk Foreign Key(studentemail) References student(email)

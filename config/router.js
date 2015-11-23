@@ -16,9 +16,15 @@ module.exports = function(router){
 	router.get('/student/joinclass/:portalcode', 
 			require('connect-ensure-login').ensureLoggedIn(),
 			studentController.joinClass);
-	router.get('/class/:portalcode/requirement/:requirementid', 
+
+	router.get('/student/class/:portalcode/requirement/:requirementid', 
 			require('connect-ensure-login').ensureLoggedIn(),
 			studentController.viewRequirement);
+
+	router.get('/student/unenroll/:portalcode',
+			require('connect-ensure-login').ensureLoggedIn(),
+			studentController.unenroll);
+
 	router.route("/info")
 		.get(neutralController.getInfo);
 
