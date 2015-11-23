@@ -18,6 +18,6 @@
     "pg": "*"
   },
   "scripts": {
-    "start": "npm install && nodemon server.js"
+	  "start": "npm install && nodemon server.js"
   }
 }

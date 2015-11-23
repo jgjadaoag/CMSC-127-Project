@@ -1,8 +1,7 @@
-var user = require('./../db/users');
-var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
-var db = require('./../db');
-
+var users = require('./../db/users');
+var db = require('./../db/postgresql');
+var studentController = require('./../controllers/student.js');
+var neutralController = require('./../controllers/neutral.js');
 
 
 module.exports = function(router){
@@ -21,10 +20,7 @@ module.exports = function(router){
 			require('connect-ensure-login').ensureLoggedIn(),
 			studentController.viewRequirement);
 	router.route("/info")
-		.get(
-			function(req, res) {
-				res.send(req.user);
-			});
+		.get(neutralController.getInfo);
 
 
 		return router;

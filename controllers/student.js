@@ -1,6 +1,7 @@
 const db = require(__dirname + '/../db/postgresql.js');
 
 exports.joinClass = (req, res, next) => {
+<<<<<<< HEAD
 	function start() {
 		if (req.user.isTeacher) {
 			res.send({message: "you are not a student"});

@@ -20,8 +20,7 @@ create table student(
 
 /*INSERT STUDENT*/
 
-insert into student values
-(
+insert into student values(
 	'jlesguerra2@up.edu.ph', 
 	'Joshze Rica', 
 	'Luklukan', 
@@ -33,8 +32,7 @@ insert into student values
 	'College of Arts and Sciences' 
 );
 
-insert into student values
-(
+insert into student values(
 	'jprmyrealonda@up.edu.ph', 
 	'Jose Protacio', 
 	'Rizal Mercado', 
@@ -46,8 +44,7 @@ insert into student values
 	'College of Human Ecology'
 );
 
-insert into student values
-(
+insert into student values(
 	'jdelacruz32@up.edu.ph', 
 	'Juan', 
 	'Dela', 
@@ -65,8 +62,7 @@ create table Teacher (
 	constraint Teacher_email_pk Primary Key(email) 
 )inherits(person);
 
-insert into Teacher values
-(
+insert into Teacher values(
 	'rncrecario@up.edu.ph',
 	'Reginald Neil',
 	'C',
@@ -75,8 +71,8 @@ insert into Teacher values
 	'password',
 	'0001112221'
 );
-insert into Teacher values
-(
+
+insert into Teacher values(
 	'lrdanila@up.edu.ph',
 	'Lailanie',
 	'R',
@@ -85,8 +81,8 @@ insert into Teacher values
 	'password2',
 	'1112223698'
 );
-insert into Teacher values
-(
+
+insert into Teacher values(
 	'cnmperalta@up.edu.ph',
 	'Caroline Natalie',
 	'M',
@@ -104,14 +100,16 @@ create table Teacher_Degree_List (
 	constraint Teacher_Degree_List_teacher_email_fk Foreign Key(teacher_email) References Teacher(email)
 );
 
-insert into Teacher_Degree_List values
-('rncrecario@up.edu.ph','BS Computer Science'
+insert into Teacher_Degree_List values(
+	'rncrecario@up.edu.ph','BS Computer Science'
 );
-insert into Teacher_Degree_List values
-('lrdanila@up.edu.ph','BS Computer Science'
+
+insert into Teacher_Degree_List values(
+	'lrdanila@up.edu.ph','BS Computer Science'
 );
-insert into Teacher_Degree_List values
-('cnmperalta@up.edu.ph','BS Computer Science'
+
+insert into Teacher_Degree_List values(
+	'cnmperalta@up.edu.ph','BS Computer Science'
 );
 
 /*CREATE*/
@@ -125,7 +123,8 @@ create table class(
 	description text, 
 	teacheremail varchar(50) not null, 
 	constraint class_portal_pk Primary Key(portal),
-	constraint class_teacheremail_fk Foreign Key(teacheremail) References teacher(email));
+	constraint class_teacheremail_fk Foreign Key(teacheremail) References teacher(email)
+);
 
 insert into class values(
 	'abcdefghij',
@@ -135,6 +134,7 @@ insert into class values(
 	'This course will teach about the different sex practices of different cultures',
 	'cnmperalta@up.edu.ph'
 );
+
 insert into class values(
 	'zxcvbnmtre',
 	'SEXED 101',
@@ -143,6 +143,7 @@ insert into class values(
 	'This course will teach about the different sex practices of different cultures',
 	'rncrecario@up.edu.ph'
 );
+
 insert into class values(
 	'asdfghjklp',
 	'FASH 1',
@@ -161,46 +162,143 @@ create table class_list(
 	constraint class_studentemail_fk Foreign Key(studentemail) References student(email)
 );
 	
-insert into class_list values('asdfghjklp', 'jlesguerra2@up.edu.ph');
-insert into class_list values('asdfghjklp', 'jprmyrealonda@up.edu.ph');
-insert into class_list values('zxcvbnmtre', 'jdelacruz32@up.edu.ph');
-insert into class_list values('abcdefghij', 'jprmyrealonda@up.edu.ph');
+insert into class_list values(
+	'asdfghjklp', 
+	'jlesguerra2@up.edu.ph'
+);
+
+insert into class_list values(
+	'asdfghjklp', 
+	'jprmyrealonda@up.edu.ph'
+);
+
+insert into class_list values(
+	'zxcvbnmtre', 
+	'jdelacruz32@up.edu.ph'
+);
+
+insert into class_list values(
+	'abcdefghij',
+	'jprmyrealonda@up.edu.ph'
+);
 
 drop table if exists requirement cascade;
 create table requirement (
-	id serial not null, 
+	id varchar(10) not null, 
 	description text,
-	name varchar(50),
+	name varchar(50) not null,
 	type varchar(20) not null, 
 	duedate timestamp not null, 
 	maxgrade numeric(3) not null, 
 	classportal varchar(10) not null,
 	teacheremail varchar(50) not null, 
-	constraint requirement_requirementid_pk Primary Key(id),
+	constraint requirement_requirementid_pk Primary Key(id, classportal),
 	constraint requirement_classportal_fk Foreign Key(classportal) References class(portal),
 	constraint requirement_teacheremail_fk Foreign Key(teacheremail) References teacher(email) 
 );
 
 drop table if exists requirement_passed;
 create table requirement_passed (
-	requirementid serial not null, 
+	requirementid varchar(10) not null, 
 	classportal varchar(10) not null,
 	studentemail varchar(50) not null, 
 	grade numeric(3) not null, 
 	submissiondate timestamp not null, 
 	constraint requirement_Passed_pk Primary Key(requirementid, classportal, studentemail),
-	constraint requirement_Passed_Requirementid_fk Foreign Key(requirementid) References Requirement(id),
-	constraint requirement_passed_studentemai_fk Foreign Key(studentemail) References student(email),
-	constraint requirement_passed_classportal_fk Foreign Key(classportal) References class(portal)
+	constraint requirement_Passed_Requirementid_fk Foreign Key(requirementid, classportal) References Requirement(id, classportal),
+	constraint requirement_passed_studentemai_fk Foreign Key(studentemail) References student(email)
 );
 
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail) 
-values('Eessay on the history of fashion', 'Essay 1','Essay', current_timestamp, 100, 'abcdefghij', 'cnmperalta@up.edu.ph');
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail)
-values('Exercise on fashion design', 'Exer 12', 'Exercise', current_timestamp, 100, 'asdfghjklp', 'cnmperalta@up.edu.ph');
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail) 
-values('Essay', current_timestamp, 20, '1234567890');
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail) 
+values(
+	'1',
+	'Eessay on the history of fashion', 
+	'Essay 1',
+	'Essay', 
+	current_timestamp, 
+	100, 
+	'abcdefghij', 
+	'cnmperalta@up.edu.ph'
+);
 
-insert into Requirement_Passed values(1, 'asdfghjklp', 'jprmyrealonda@up.edu.ph', 12, current_timestamp);
-insert into Requirement_Passed values(1, 'zxcvbnmtre', 'jlesguerra2@up.edu.ph', 12, current_timestamp);
-insert into Requirement_Passed values(2, 'zxcvbnmtre', 'jlesguerra2@up.edu.ph', 14, current_timestamp);
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail)
+values(
+	'2',
+	'Exercise on fashion design', 
+	'Exer 12', 
+	'Exercise', 
+	current_timestamp, 
+	100, 
+	'asdfghjklp', 
+	'cnmperalta@up.edu.ph'
+);
+
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail) 
+values(
+	'1',
+	'',
+	'',
+	'Essay', 
+	current_timestamp, 
+	20, 
+	'asdfghjklp',
+	'cnmperalta@up.edu.ph'
+);
+
+insert into Requirement_Passed 
+values(
+	'1', 
+	'abcdefghij', 
+	'jprmyrealonda@up.edu.ph', 
+	12, 
+	current_timestamp
+);
+
+insert into Requirement_Passed 
+values(
+	'2', 
+	'asdfghjklp', 
+	'jlesguerra2@up.edu.ph', 
+	12, 
+	current_timestamp
+);
+
+insert into Requirement_Passed 
+values(
+	'1', 
+	'asdfghjklp', 
+	'jlesguerra2@up.edu.ph', 
+	14, 
+	current_timestamp
+);
+
+drop table if exists fileupload;
+create table fileupload(
+	fileno serial not null,
+	filename varchar(25) not null,
+	filedescription text,
+	classportal varchar(10) not null,
+	constraint fileupload_fileno_pk Primary Key(fileno),
+	constraint fileupload_classportal_fk Foreign Key(classportal) References class(portal)
+);
+
+insert into fileupload(filename, filedescription, classportal)
+values(
+	'SEXED 101 Handout1.pdf', 
+	'1st Handout for SEXED 101 Laborotary 1S1516', 
+	'abcdefghij'
+);
+
+insert into fileupload(filename, filedescription, classportal)
+values(
+	'FASH 1 Handout1.pdf', 
+	'1st Handout for FASH 1 Laborotary 1S1516', 
+	'asdfghjklp'
+);
+
+insert into fileupload(filename, filedescription, classportal)
+values(
+	'FASH 1 Handout2.pdf', 
+	'2nd Handout for FASH 1 Laborotary 1S1516', 
+	'asdfghjklp'
+);

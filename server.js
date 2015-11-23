@@ -31,7 +31,7 @@ passport.use(new Strategy(
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function(user, cb) {
-  cb(null, user.studentno);
+  cb(null, user.email);
 });
 
 passport.deserializeUser(function(id, cb) {
@@ -92,6 +92,35 @@ passport.deserializeUser(function(id, cb) {
 });
 
 
+passport.use(new Strategy(
+  function(username, password, cb) {
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return cb(err); }
+      if (!user) { return cb(null, false); }
+      if (user.password != password) { return cb(null, false); }
+      return cb(null, user);
+    });
+  }));
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user.email);
+});
+
+passport.deserializeUser(function(id, cb) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+app.use(require(__dirname+'/config/router')(express.Router()));
+
+app.post('/login', 
+	passport.authenticate('local', { failureRedirect: '/#/login' }),
+	function(req, res) {
+		res.redirect('/user/#/feed');
+});
+
 // Define routes.
 /*
 app.get('/',
@@ -131,7 +160,7 @@ app.use('/user',
   require('connect-ensure-login').ensureLoggedIn(),
   //passport.authenticate('local', { failureRedirect: '/#/login' }),
 	express.static(__dirname + '/public')
-  );
+);
 
 app.use("/user/controllers/user.js", function(req, res) {
 	if(req.user.isTeacher) {

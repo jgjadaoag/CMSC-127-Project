@@ -1,22 +1,37 @@
-<div id="side-panel">
-	<h2>{{group.coursecode}}</h2>
-	<hr>
-	<sub>{{group.description}}</sub>
-	<hr>
+<div id="group-holder">
+<div class="col-md-3" id="info-panel">
+	<h3>{{group.coursecode}}</h3>
+	<h6>{{group.description}}</h6>
+	<h5>{{group.section}}</h5>
+	<h5>{{group.teacheremail}}</h5>
+	<hr />
+	<h4>Code: {{group.portal}}</h4>
+	<hr />
+	<a>Create Requirement</a><br />
+	<a>View Requirements</a><br />
 	<a href="group/{{group.id}}/students" title="View Students">View Students</a><br />
 	<a href="group/{{group.id}}/files" title="View Files">View Files</a>
+	<br /><br />
 </div>
-<div id="post-panel">
-	<h3>Post</h3>
+</div>
+
+<div class="col-md-8" id="file-panel">
+	<h2>{{group.coursecode}} {{group.section}}</h2>
 	<hr>
-	<form>
-		<textarea rows="4" cols="70" placeholder="What's on your mind?"></textarea><br />
-		<input type="button" name="submit-post" value="POST"/>
-	</form>
-</div>
-<div id="req-panel">
-	<p>
-	<h3>Requirements</h3>
-	There are no requirements due soon.
-	</p>
+	<div>
+		<p>Upload a File</p>
+		<form>
+			<textarea rows="4" maxlength="500" placeholder="Say something about this file..."></textarea><br />
+			<div id="post-group">
+				<input type="file" name="exer" class="btn btn-link">
+				<input type="button" name="submit-post" class="btn btn-primary btn-md" value="Upload to Group"/>
+			</div>
+		</form>
+	</div>
+	<div id="feed-group">
+		<h3>Files</h3>
+		<p>List of posts</p>
+		<h3>Requirements</h3>
+		<p>There are no requirements due soon.</p>
+	</div>
 </div>
