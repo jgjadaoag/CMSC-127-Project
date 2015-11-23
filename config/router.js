@@ -25,6 +25,9 @@ module.exports = function(router){
 			require('connect-ensure-login').ensureLoggedIn(),
 			studentController.unenroll);
 
+	router.post('/sign-up',
+			neutralController.signUp);
+
 	router.route("/info")
 		.get(neutralController.getInfo);
 

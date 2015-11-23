@@ -4,15 +4,15 @@
 			<h1>Teacher Sign Up Form</h1>
 			<h4>The first step to organizing your classes.</h4>
 			<hr>
-			<pre id="signUp"><form><div class="form-element" id="name-form">	Name						<input type="text" name="first-name" placeholder="First Name" style="width:130px"> <input type="text" name="middle-name" placeholder="Middle Name" style="width:130px"> <input type="text" name="last-name" placeholder="Last Name" style="width:131px">
+			<pre id="signUp"><form action="/sign-up" method="post"><div class="form-element" id="name-form">	Name						<input type="text" name="fname" placeholder="First Name" style="width:130px"> <input type="text" name="mname" placeholder="Middle Name" style="width:130px"> <input type="text" name="lname" placeholder="Last Name" style="width:131px">
 
-	Email						<input type="email" name="e-mail" placeholder=" email@email.com" style="width:400px">
+	Email						<input type="email" name="email" placeholder=" email@email.com" style="width:400px" required>
 
 	Password					<input type="password" name="password" style="width:400px">
 
-	Birthdate					<input type="date" name="b-day" style="width:400px">
+	Birthdate					<input type="date" name="bday" style="width:400px">
 
-	Employee Number			<input type="text" name="stdno" placeholder="YYYY-NNNNN"style="width:400px">
+	Employee Number			<input type="text" name="empno" placeholder="YYYY-NNNNN"style="width:400px">
 
 	College						<select style="width:400px">
 <option value="CA">College of Agriculture</option>
@@ -27,6 +27,6 @@
 <option value="SESAM">School of Environmental Science and Management</option>			
 </select>
 
-	Degree						<input type="text" name="degree"  style="width:400px"></div></form>
-<button type="submit" class="btn btn-primary btn-block" formaction="groups.html">Sign-up</button></pre>
+<input type="hidden" name="isTeacher" value="true">
+<button type="submit" class="btn btn-primary btn-block" >Sign-up</button></form></pre>
 </section>
