@@ -1,6 +1,6 @@
 const db = require(__dirname + '/../db/postgresql.js');
 
-exports.joinClass = (req, res, next) => {
+exports.joinClass = function (req, res, next) {
 	function start() {
 		if (req.user.isTeacher) {
 			res.send({message: "you are not a student"});
@@ -36,7 +36,7 @@ exports.joinClass = (req, res, next) => {
 	function insertToClass() {
 		db.query('INSERT INTO class_list values($1, $2, false) RETURNING *', 
 			[req.params.portalcode, req.user.email],
-			(err, result) => {
+			function (err, result) {
 				if (err) {
 					res.send({message: "Unable to insert to class list"});
 					return;
@@ -52,7 +52,7 @@ exports.joinClass = (req, res, next) => {
 	start();
 }
 
-exports.viewRequirement = (req, res, next) => {
+exports.viewRequirement = function (req, res, next) {
 	function start() {
 		db.query('SELECT * from class_list WHERE portal = $1 and studentemail = $2',
 			[req.params.portalcode, req.user.email],
@@ -71,7 +71,7 @@ exports.viewRequirement = (req, res, next) => {
 	function getRequirement() {
 		db.query('SELECT * FROM requirement WHERE id = $1 and classportal = $2',
 				[req.params.requirementid, req.params.portalcode],
-				(err, result) => {
+				function (err, result) {
 
 					if (err) {
 						res.send({message: "Unable to select from requirement"});
@@ -89,7 +89,7 @@ exports.viewRequirement = (req, res, next) => {
 	start();
 }
 
-exports.unenroll = (req, res, next) => {
+exports.unenroll = function (req, res, next) {
 	function start() {
 		db.query('SELECT * FROM class_list WHERE portal = $1 AND studentemail = $2',
 			[req.params.portalcode, req.user.email],

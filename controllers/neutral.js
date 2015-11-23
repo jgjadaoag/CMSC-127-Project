@@ -1,6 +1,6 @@
 const db = require('./../db/postgresql');
 
-exports.getInfo = (req, res, next) => {
+exports.getInfo = function (req, res, next) {
 	if (req.user) {
 		delete req.user.password;
 	}
@@ -8,7 +8,7 @@ exports.getInfo = (req, res, next) => {
 	res.send(req.user);
 }
 
-exports.signUp = (req, res, next) => {
+exports.signUp = function (req, res, next) {
 	function start() {
 		db.query('SELECT * FROM person where email = $1',
 				[req.body.email],
@@ -37,7 +37,7 @@ function teacherSignUp (req, res, next) {
 	function start() {
 		db.query('INSERT INTO teacher VALUES($1, $2, $3, $4, $5, $6, $7)',
 				[req.body.email, req.body.fname, req.body.mname, req.body.lname, req.body.bday, req.body.password, req.body.empno],
-				(err, result) => {
+				function (err, result) {
 					if (err) {
 						res.send({message: "Error inserting to teachers"});
 						return;
@@ -56,7 +56,7 @@ function studentSignUp (req, res, next) {
 	function start() {
 		db.query('INSERT INTO student VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)',
 				[req.body.email, req.body.fname, req.body.mname, req.body.lname, req.body.bday, req.body.password, req.body.stdno, req.body.degree, req.body.college],
-				(err, result) => {
+				function (err, result) {
 					if (err) {
 						res.send({message: "Error inserting to students"});
 						return;
@@ -69,14 +69,14 @@ function studentSignUp (req, res, next) {
 	start();
 }
 
-exports.viewFiles = (req, res, next) => {
+exports.viewFiles = function (req, res, next) {
 }
 
-exports.viewClass = (req, res, next) => {
+exports.viewClass = function (req, res, next) {
 	function start() {
 		db.query('SELECT * FROM class WHERE portal = $1',
 				[req.params.portalcode],
-				(err, result) => {
+				function (err, relt) {
 					if (err) {
 						res.send({message: "Error selecting class"});
 						return;
@@ -100,7 +100,7 @@ exports.viewClass = (req, res, next) => {
 		} else {
 			db.query('SELECT * FROM class_list WHERE portal = $1 and studentemail = $2 and isenrolled = true',
 					[classDetail.portal, req.user.email],
-					(err, result) => {
+					function (err, result) {
 						if (err) {
 							res.send({message: "Error in selecting class list"});
 							return;
