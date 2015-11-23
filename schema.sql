@@ -184,34 +184,35 @@ insert into class_list values(
 
 drop table if exists requirement cascade;
 create table requirement (
-	id serial not null, 
+	id varchar(10) not null, 
 	description text,
-	name varchar(50),
+	name varchar(50) not null,
 	type varchar(20) not null, 
 	duedate timestamp not null, 
 	maxgrade numeric(3) not null, 
 	classportal varchar(10) not null,
 	teacheremail varchar(50) not null, 
-	constraint requirement_requirementid_pk Primary Key(id),
+	constraint requirement_requirementid_pk Primary Key(id, classportal),
 	constraint requirement_classportal_fk Foreign Key(classportal) References class(portal),
 	constraint requirement_teacheremail_fk Foreign Key(teacheremail) References teacher(email) 
 );
 
 drop table if exists requirement_passed;
 create table requirement_passed (
-	requirementid serial not null, 
+	requirementid varchar(10) not null, 
 	classportal varchar(10) not null,
 	studentemail varchar(50) not null, 
 	grade numeric(3) not null, 
 	submissiondate timestamp not null, 
 	constraint requirement_Passed_pk Primary Key(requirementid, classportal, studentemail),
-	constraint requirement_Passed_Requirementid_fk Foreign Key(requirementid) References Requirement(id),
-	constraint requirement_passed_studentemai_fk Foreign Key(studentemail) References student(email),
-	constraint requirement_passed_classportal_fk Foreign Key(classportal) References class(portal)
+	constraint requirement_Passed_Requirementid_fk Foreign Key(requirementid, classportal) References Requirement(id, classportal),
+	constraint requirement_passed_studentemai_fk Foreign Key(studentemail) References student(email)
 );
 
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail) 
-values('Eessay on the history of fashion', 
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail) 
+values(
+	'1',
+	'Eessay on the history of fashion', 
 	'Essay 1',
 	'Essay', 
 	current_timestamp, 
@@ -220,8 +221,9 @@ values('Eessay on the history of fashion',
 	'cnmperalta@up.edu.ph'
 );
 
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail)
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail)
 values(
+	'2',
 	'Exercise on fashion design', 
 	'Exer 12', 
 	'Exercise', 
@@ -231,18 +233,22 @@ values(
 	'cnmperalta@up.edu.ph'
 );
 
-insert into Requirement(description, name, type, duedate, maxgrade, classportal, teacheremail) 
+insert into Requirement(id, description, name, type, duedate, maxgrade, classportal, teacheremail) 
 values(
+	'1',
+	'',
+	'',
 	'Essay', 
 	current_timestamp, 
 	20, 
-	'1234567890'
+	'asdfghjklp',
+	'cnmperalta@up.edu.ph'
 );
 
 insert into Requirement_Passed 
 values(
-	1, 
-	'asdfghjklp', 
+	'1', 
+	'abcdefghij', 
 	'jprmyrealonda@up.edu.ph', 
 	12, 
 	current_timestamp
@@ -250,8 +256,8 @@ values(
 
 insert into Requirement_Passed 
 values(
-	1, 
-	'zxcvbnmtre', 
+	'2', 
+	'asdfghjklp', 
 	'jlesguerra2@up.edu.ph', 
 	12, 
 	current_timestamp
@@ -259,8 +265,8 @@ values(
 
 insert into Requirement_Passed 
 values(
-	2, 
-	'zxcvbnmtre', 
+	'1', 
+	'asdfghjklp', 
 	'jlesguerra2@up.edu.ph', 
 	14, 
 	current_timestamp
