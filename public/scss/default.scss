@@ -80,10 +80,11 @@ div#content {
 }
 
 #file-panel{
+	left: 10px;
 	border-radius: 5px;
-	margin: 1% 0 3% 3%;
+	margin: 1% 0 3% 0%;
 	padding: 2%;
-	padding-top: 0;
+	padding-top: 2px;
 	background-color: rgba(51, 61, 56, 0.8);
 
 	h2{
@@ -108,11 +109,7 @@ div#content {
 		text-align: right;
 	}
 
-	#feed-group{
-		padding: 2%;
-	}
-
-	textarea{ 
+	textarea{
 		border:1px solid #999999;
 	    width:98%;
 	    margin:5px 0;
@@ -147,6 +144,7 @@ div#content {
 	     border-top: none !important; 
 	 }
 }
+
 
 .content-holder {
 	padding: 10px;
@@ -199,50 +197,6 @@ div#content {
 			height: 1px;
 		}
 	}
-}
-
-.ribbon {
-  position: absolute;
-  right: 14px; top: 6px;
-  z-index: 1;
-  overflow: hidden;
-  width: 75px; height: 75px;
-  text-align: right;
-}
-.ribbon span {
-  font-size: 10px;
-  color: #FFF;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 20px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  width: 100px;
-  display: block;
-  background: #79A70A;
-  background: linear-gradient(#0D3824 0%, #0B3020 100%);
-  position: absolute;
-  top: 19px; 
-  right: -21px;
-}
-
-.ribbon span::before {
-  content: "";
-  position: absolute; left: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid #0B3020;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #0B3020;
-}
-.ribbon span::after {
-  content: "";
-  position: absolute; right: 0px; top: 100%;
-  z-index: -1;
-  border-left: 3px solid transparent;
-  border-right: 3px solid #0B3020;
-  border-bottom: 3px solid transparent;
-  border-top: 3px solid #0B3020;
 }
 
 #smaller{
@@ -336,3 +290,50 @@ div#content {
 		background: rgba(0,0,0,0.4); 
 	}
 
+// RIBBONS
+
+.ribbon {
+  position: absolute;
+  margin-top: -3%;
+  margin-left: 81.5%;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+
+.ribbon span {
+  font-size: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#0D3824 0%, #0B3020 100%);
+  position: absolute;
+  top: 19px; 
+  right: -21px;
+}
+
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #0B3020;
+  border-right: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #0B3020;
+}
+.ribbon span::after {
+  content: "";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #0B3020;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #0B3020;
+}

@@ -1,13 +1,17 @@
-<div class="col-md-3" id="info-panel">
-	<h4>Esguerra, Joshze Rica L</h4>
-	<h5>Teacher</h5>
-	<h5>Employee Number: 5986801827</h5>
-	<hr>
-	<h5><a href="create-group.html">Create Group</a></h5>
-	<h5><a href="../settings.html">Account Settings</a></h5>
-	<br />
-</div>
-<div class="col-md-8" id="post-panel">
+<div class="row" ng-controller="userCtrl">
+	<div class="col-md-3 sidebar content-holder">
+		<!-- FOR STUDENT -->
+		<div class="row" id="info-panel">
+			<h4>{{user.lname}}, {{user.fname}}</h4>
+			<h5>{{user.college}}</h5>
+			<h5>{{user.studentno}}</h5>
+		<hr>
+			<h5><a href="#/enroll">Join Group</a></h5>
+			<h5><a href="#/create-class">Create Group</a></h5>
+		</div>
+		<!-- FOR STUDENT -->
+	</div>
+<div class="col-md-8" id="file-panel">
 	<h2>Create Group</h2>
 	<hr>
 	<form>
@@ -32,6 +36,7 @@
 		</table>
 		</div>
 		<br />
-		<button type="submit" name="create-group" formaction="group.html" class="btn btn-primary custom">CREATE</button>
+		<a href="#/class/abcdefghij"><button type="submit" name="create-group" formaction="group.html" class="btn btn-primary custom">CREATE</button></a>
 	</form>
+</div>
 </div>

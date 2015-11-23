@@ -7,15 +7,16 @@
 	<hr />
 	<h4>Code: {{group.portal}}</h4>
 	<hr />
-	<a>Create Requirement</a><br />
-	<a>View Requirements</a><br />
-	<a href="group/{{group.id}}/students" title="View Students">View Students</a><br />
-	<a href="group/{{group.id}}/files" title="View Files">View Files</a>
+	<a  href="#/class/{{group.portal}}/requirement/create" title="Create Requirement">Create Requirement</a><br />
+	<a href="#/class/{{group.portal}}/requirement" title="View Requirements">View Requirements</a><br />
+	<a href="#/class/{{group.portal}}/students" title="View Students">View Students</a><br />
+	<a href="#/class/{{group.portal}}/files/{{fileupload.id}}" title="View Files">View Files</a>
 	<br /><br />
 </div>
 </div>
 
-<div class="col-md-8" id="file-panel">
+<div class="col-md-8">
+	<div id="file-panel">
 	<h2>{{group.coursecode}} {{group.section}}</h2>
 	<hr>
 	<div>
@@ -28,7 +29,9 @@
 			</div>
 		</form>
 	</div>
-	<div id="feed-group">
+	</div>
+
+	<div class="feed-group" id="file-panel">
 		<h3>Files</h3>
 		<p>List of posts</p>
 		<h3>Requirements</h3>
